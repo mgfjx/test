@@ -1,0 +1,19 @@
+//
+//  Headers.pch
+//  Unity
+//
+//  Created by mgfjx on 16/8/8.
+//  Copyright © 2016年 XXL. All rights reserved.
+//
+
+#ifndef Headers_pch
+#define Headers_pch
+
+#import "UIColor+Hex.h"
+#import "UIView+AddFunc.h"
+#import "TransitionManager.h"
+#import "Singleton.h"
+#import "NSString+RegExp.h"
+#import "NSDate+Utilities.h"
+
+#endif /* Headers_pch */
