@@ -7,10 +7,15 @@
 //
 
 #import "RootViewController.h"
+#import "AutoScrollLabel.h"
 
 @interface RootViewController (){
-    UIButton *_btn;
+    UIView *animationView;
+    UIButton *button;
+    CGPoint animationPoint;
 }
+
+@property (nonatomic, strong) UISlider *slider;
 
 @end
 
@@ -18,25 +23,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(100, 100, 100, 100);
-    [btn addTarget:self action:@selector(btnClicked) forControlEvents:UIControlEventTouchUpInside];
-    btn.backgroundColor = [UIColor randomColorWithAlpha:0.5];
-    
-    [self.view addSubview:btn];
-    
-    _btn = btn;
-    
-    [NSTimer scheduledTimerWithTimeInterval:0.25 target:self selector:@selector(btnClicked) userInfo:nil repeats:YES];
+    // 创建Button
+    button = [UIButton buttonWithType:UIButtonTypeSystem];
+    button.layer.borderWidth = 0.5f;
+    button.layer.cornerRadius = 7.0f;
+    button.frame = CGRectMake(240, 100, 60, 25);
+    [button setTitle:@"动画" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
     
 }
 
-- (void)btnClicked{
+- (void)test {
     
+    UISlider *slider = [[UISlider alloc] init];
+    slider.frame = CGRectMake(20, 200, self.view.width - 20*2, 30);
+    slider.minimumValue = 0;
+    slider.maximumValue = 100;
+    slider.backgroundColor = [UIColor randomColorWithAlpha:0.5];
+    [slider addTarget:self action:@selector(showAnimation:) forControlEvents:UIControlEventValueChanged];
+    slider.continuous = NO;
+    slider.showLogoView = YES;
     
+    [self.view addSubview:slider];
+    
+//    [slider properties];
+//    NSLog(@"%@", slider.allTargets);
     
 }
+
+- (void)showAnimation:(UISlider *)slider {
+    
+//    NSLog(@"%f",slider.value);
+    
+}
+
+
 
 @end

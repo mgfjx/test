@@ -15,5 +15,8 @@
 #import "Singleton.h"
 #import "NSString+RegExp.h"
 #import "NSDate+Utilities.h"
+#import <MJRefresh/MJRefresh.h>
+#import "XLPopoverView.h"
+#import "UISlider+Logo.h"
 
 #endif /* Headers_pch */
